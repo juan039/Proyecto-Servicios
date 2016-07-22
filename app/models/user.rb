@@ -7,10 +7,4 @@ class User < ActiveRecord::Base
  	has_many :scores
 	has_many :services, :through => :scores
 
-
-  after_create :set_role
-
-  def set_role
-  	current_user.add_role :contratista
-  end
 end

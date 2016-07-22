@@ -22,7 +22,16 @@
   </tbody>
 </table>
 
-<a href="/users/sign_up">Registrese</a>
 <br>
+
+<a href="/users/sign_up/member">Registrese</a>
+<br>
+
+<a href="/users/sign_up">Registrese como Prestador de Servicio</a>
+<br>
+
+<%= link_to 'Destroy', destroy_user_session_path, method: :delete %>
+
+<br><br>
 
 <%= link_to 'New Service', new_service_path %>
