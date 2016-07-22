@@ -8,7 +8,7 @@ def service_provider_user_register
 end
 
     def register
-      @resource=params["controller"][0..3]
+      @resource=User.to_s
        render "new_user.html.erb"
     end
 
