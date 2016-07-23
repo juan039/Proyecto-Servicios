@@ -1,17 +1,18 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!, only: [:show] 
+  before_action :authenticate_user!, only: [:show, :edit, :update, :destroy] 
 
   # GET /services
   # GET /services.json
   def index
     @services = Service.all
+    @users= User.all
   end
 
   # GET /services/1
   # GET /services/1.json
   def show
-
+    redirect_to "/"
   end
 
   # GET /services/new
@@ -72,5 +73,9 @@ class ServicesController < ApplicationController
     # Never trust parameters from the scary internet, only allow the white list through.
     def service_params
       params.require(:service).permit(:name)
+    end
+
+    def dashboard
+      
     end
 end

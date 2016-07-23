@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  client_id_id: 
+  service_id_id: 
+  provider_id_id: 
+  date_request: 
+  description: 
+
+two:
+  client_id_id: 
+  service_id_id: 
+  provider_id_id: 
+  date_request: 
+  description: 

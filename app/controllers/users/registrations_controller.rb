@@ -3,12 +3,8 @@ class Users::RegistrationsController < Devise::RegistrationsController
 # before_action :configure_account_update_params, only: [:update]
 
 
-def service_provider_user_register
-  #Professonal User Register Code
-end
-
     def register
-      @resource=User.to_s
+      @resource=User.to_s.downcase
        render "new_user.html.erb"
     end
 
@@ -17,9 +13,16 @@ end
     end
 
   # POST /resource
-  # def create
-    # super
-  # end
+  def create
+    super
+    @servicio=params[:Servicio]
+    service=Service.find_by name: @servicio
+    if @servicio != nil
+      user= User.last
+      user.scores.create({service_id: service.id})
+    end
+    
+  end
 
   # GET /resource/edit
   # def edit
