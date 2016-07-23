@@ -2,15 +2,72 @@
 <html>
 <head>
   <title>Services</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
-  <%= csrf_meta_tags %>
+        <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>app</title>
+      <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+      
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+
+<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+ <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+ <%= csrf_meta_tags %>
   
 </head>
 <body>
-   <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p>
+
+       <!-- ///////navBar//////// -->
+  <nav class="navbar navbar-light bg-faded">
+    <a class="navbar-brand" href="#">Navbar</a>
+    <ul class="nav navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+
+      <li>
+        <button class="btn btn-success-outline pull-xs-right" type="submit">Log In</button>
+      </li> 
+      <li>
+        <button class="btn btn-success-outline pull-xs-right" type="submit"><a href="/users/sign_up">Sing In</a></button>
+      </li> 
+
+      <li>
+        <form class="form-inline pull-xs-right">
+          <input class="form-control input-xlg srchHome" type="text" placeholder="Search for services">
+          <button class="btn btn-success-outline" type="submit">Search</button>
+        </form>
+ </li>
+
+    </ul>
+
+  </nav> 
+   <!--  <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p> --> 
+
 <%= yield %>
+
+    <!-- ///////footer//////// -->
+
+<footer class="footer">
+      <div class="container">
+        <span class="text-muted">Place sticky footer content here.</span>
+      </div>
+</footer>
+
+  <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/js/bootstrap.min.js" integrity="sha384-vZ2WRJMwsjRMW/8U7i6PWi6AlO1L79snBrmgiDpgIWJ82z8eA5lenwvxbMV1PAh7" crossorigin="anonymous"></script>
 
 </body>
 </html>
