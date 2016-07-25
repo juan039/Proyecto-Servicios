@@ -3,13 +3,16 @@ Rails.application.routes.draw do
         sessions: 'users/sessions', registrations: 'users/registrations'
       }
 
-  resources :services
+  resources :services do
+    post 'require_service'
+  end
+
   root to: "services#index"
 
 
-devise_scope :user do
-    get "professional/register" =>"devise/registrations#service_provider_user_register"
-end
+  devise_scope :user do
+      get "professional/register" =>"devise/registrations#service_provider_user_register"
+  end
 
 # devise_for :users,  :controllers => { :registrations => "users/registrations" } do
 #   get "employee/register", :to => "devise/registrations#nuevo", :as => "employee_register"

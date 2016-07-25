@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
-  before_action :set_service, only: [:show, :edit, :update, :destroy]
+  before_action :set_service, only: [:show, :edit, :update, :destroy, :require_service]
   before_action :authenticate_user!, only: [:show, :edit, :update, :destroy] 
 
   # GET /services
@@ -12,6 +12,7 @@ class ServicesController < ApplicationController
   # GET /services/1
   # GET /services/1.json
   def show
+    @contract=Contract.new
     render :require_service
   end
 
@@ -76,6 +77,12 @@ class ServicesController < ApplicationController
     end
 
     def require_service
+      client= params[current_user]
+      service= params[@service]
+      client.contracts.create({client_id: client.id, service_id: service.id})
+    end
+
+    def accept_contract
       
     end
 end
