@@ -12,7 +12,7 @@ class ServicesController < ApplicationController
   # GET /services/1
   # GET /services/1.json
   def show
-    redirect_to "/"
+    render :require_service
   end
 
   # GET /services/new
@@ -75,7 +75,7 @@ class ServicesController < ApplicationController
       params.require(:service).permit(:name)
     end
 
-    def dashboard
+    def require_service
       
     end
 end

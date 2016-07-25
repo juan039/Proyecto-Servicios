@@ -1,0 +1,11 @@
+<h2>Contratar Servicio</h2>
+
+<%= form_for current_user :url =>{:action => :require_service} do |form|%>
+  
+  <div class="field">
+    <%= f.label :date_request, 'Fecha' %><br />
+    <%= f.text_field :first_name, autofocus: true %>
+  </div>
+
+
+<%end%> 

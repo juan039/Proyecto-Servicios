@@ -41,8 +41,10 @@ ActiveRecord::Schema.define(version: 20160723202924) do
 
   create_table "services", force: :cascade do |t|
     t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string   "description"
+    t.string   "image"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
   end
 
   create_table "user_service_providers", force: :cascade do |t|

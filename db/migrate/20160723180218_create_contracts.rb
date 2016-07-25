@@ -6,7 +6,6 @@ class CreateContracts < ActiveRecord::Migration
       t.integer :provider_id
       t.datetime :date_request
       t.text :description
-
       t.timestamps null: false
     end
   end
