@@ -4,9 +4,10 @@ Rails.application.routes.draw do
       }
 
   resources :services do
-    post 'require_service'
+    post "add_service" => "services#add_service" 
   end
-
+  get "require_service" => "services#require_service"
+  get "/contracts" => "services#contracts"
   root to: "services#index"
 
 

@@ -10,11 +10,15 @@
     </tr>
   </thead>
 
+  <br>
+  <br>
+  
+
   <tbody>
     <% @services.each do |service| %>
       <tr>
         <td><%= service.name %></td>
-        <td><%= link_to 'Contratar', service %></td>
+        <td><a href="/require_service">Contratar</a></td>
       </tr>
     <% end %>
   </tbody>
@@ -22,7 +26,7 @@
 
 <br>
 
-<a href="/users/sign_up/member">Registrese</a>
+
 <br>
 
 <a href="/users/sign_up">Registrese como Prestador de Servicio</a>
@@ -41,6 +45,7 @@
       <th>Last Name</th>
       <th>Phone</th>
       <th>Email</th>
+      <th>Provider</th>
     </tr>
   </thead>
 
@@ -51,7 +56,15 @@
         <td><%= user.last_name %></td>
         <td><%= user.phone %></td>
         <td><%= user.email %></td>
+        <td><%= user.provider%></td>
+
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<br>
+
+<br>
+
+  <a href="/contracts">Contratos</a>

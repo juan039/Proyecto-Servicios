@@ -4,6 +4,6 @@ class AddColumnToUser < ActiveRecord::Migration
     add_column :users, :last_name, :string
     add_column :users, :address, :string
     add_column :users, :phone, :string
-    add_column :users, :type, :string
+    add_column :users, :provider, :boolean, default: false
   end
 end

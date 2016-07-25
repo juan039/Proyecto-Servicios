@@ -19,7 +19,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
     service=Service.find_by name: @servicio
     if @servicio != nil
       user= User.last
+      user.provider= true
+      user.save
       user.scores.create({service_id: service.id})
+
     end
     
   end
