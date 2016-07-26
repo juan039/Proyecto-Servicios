@@ -5,23 +5,58 @@
     <tr>
       <th>Usuario</th>
       <th>Servicio</th>
-      <th>Descripcion</th>
+      <th>Proveedor</th>
       <th>Fecha</th>
-      <th>Aceptar Contrato</th>
+      <th>Description</th>
+      <th>Aceptar</th>
     </tr>
   </thead>
 
   <tbody>
     <% @contracts.each do |c| %>
       <tr>
-        <td><%= c.client_id%></td>
+      <%= form_for c, url: contracts_post_path do |f|%>
+  		<span class="field">
+	  	<%f.label :id, c.id %><br />
+	    <%f.text_area :id %>
+	  </span>	
+  	  <td class="field">
+	  	<%= f.label :client_id, c.client_id %><br />
+	    <% f.text_area :client_id %>
+	  </td>
+  	  <td class="field">
+	  	<%= f.label :service_id, c.service_id %><br />
+	    <% f.text_area :service_id %>
+	  </td>
+  	  <td class="field">
+	  	<%= f.label :provider_id, c.provider_id %><br />
+	    <% f.text_area :provider_id %>
+	  </td>
+
+	  <td class="field">
+	  	<%= f.label :date_request, c.date_request %><br />
+	    <% f.date_field :date_request %>
+	  </td>
+	 
+	  <td class="field">
+	    <%= f.label :description, c.description %><br />
+	    <% f.text_area :description%>
+	  </td>
+
+	  <td class="actions">
+	    <%= f.submit "Aceptar" %>
+	  </td>
+
+	<%end%> 
+        <!-- <td><%= c.client_id%></td>
         <td><%= c.service_id %></td>
         <td><%= c.provider_id %></td>
         <td><%= c.date_request%></td>
         <td><%= c.description%></td>
-        <td><td>
+        <td><%= link_to 'Aceptar', contracts_post_path, method: :accept %>YES</a> <td> -->
 
       </tr>
     <% end %>
   </tbody>
 </table>
+

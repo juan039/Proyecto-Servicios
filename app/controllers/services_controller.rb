@@ -79,12 +79,20 @@ class ServicesController < ApplicationController
   def contracts
     @user=current_user
     if @user.provider == true
-      
+      @service=Score.where(:user_id => current_user.id)
+      @contracts=Contract.where(:service_id => @service[0].service_id)
       render :dashboard
     else 
       @contracts=Contract.where(:client_id => current_user.id)
       render :my_contracts
     end
+  end
+
+  def accept
+    @contracts=Contract.find(params[:contract][:id])
+    @contracts.provider_id=current_user.id
+    @contracts.save
+    redirect_to "/contracts"
   end
 
   private

@@ -9,6 +9,7 @@ Rails.application.routes.draw do
   get "/require_service/:id" => "services#require_service"
   post "/require_service/:id" => "services#add_service"
   get "/contracts" => "services#contracts"
+  patch "/contracts", to: "services#accept", :as => "contracts_post"
   root to: "services#index"
 
 
