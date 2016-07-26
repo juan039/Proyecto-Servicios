@@ -1,12 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
 
-
-
 <table>
   <thead>
     <tr>
-      
       <th colspan="3"></th>
     </tr>
 
@@ -14,50 +11,39 @@
 
   <tbody>
 
-  <p id="notice"><%= notice %></p>
+    <p id="notice"><%= notice %></p>
 
-    <% @services.each do |service| %>
-      <tr>
-        <td><%= service.name %></td>
-        <td><%= link_to 'Show', service %></td>
-        <td><%= link_to 'Edit', edit_service_path(service) %></td>
-        <td><%= link_to 'Destroy', service, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
+    <!-- ///////Header//////// -->
+    <div class="headCenter jumbotron">
+          <video autoplay  poster="https://s3-us-west-2.amazonaws.com/s.cdpn.io/4273/polina.jpg" id="bgvid" loop>
+          <source src="https://s3-us-west-2.amazonaws.com/coverr/mp4/In-And-Out.mp4" type="video/webm">
+          <source src="https://s3-us-west-2.amazonaws.com/coverr/mp4/In-And-Out.mp4" type="video/mp4">
+          </video>
+          <div class="opacity"></div>
+          <div class="header-text">
+              <h1 class="display-3">Preser</h1>
+              <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
+              <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
+              <p class="lead">
 
- 
-  <!-- ///////Header//////// -->
-  <div class="headCenter jumbotron">
-    <h1 class="display-3">Preser</h1>
-    <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention to featured content or information.</p>
-    <hr class="m-y-2">
-    <p>It uses utility classes for typography and spacing to space content out within the larger container.</p>
-    <p class="lead">
+                  <a href="#" class="btn btn-primary">Usuario</a>
+          <a href="#" class="btn btn-primary">Contratista</a>
+          </div>
+      </p>
+    </div>
 
-        <a href="#" class="btn btn-primary">Usuario</a>
-        <a href="#" class="btn btn-primary">Contratista</a>
+    <div class="container">
+      <div class="row">
 
-    </p>
-  </div>
+    
 
-<div class="container">
-  <div class="row">
+    <!-- ///////body//////// -->
+   
+    <article class="main-services">
 
-  
+    <%=render partial: "services", collection: @services%>    <!-- este es el partial para los modelos de servicio -->
 
-  <!-- ///////body//////// -->
-   <!-- este es el partial para los modelos de servicio -->
-
-<article class="main-services">
-
-<%=render partial: "services", object: @services%>
-
-</article>
-
-      
-
-
-
+    </article>
 
   </tbody>
 </table>

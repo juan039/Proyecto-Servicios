@@ -1,18 +1,16 @@
 <%@services.each do |service|%>
- <!-- gutter
- --><section class="card-services">
-    
-      <figure>
-        <img src='<%=service.image%>' alt="img-01.jpg">
-      </figure>
-      <h3><%=service.name%></h3>
+  <section class="card-services">
       
-      <div class="card-text">
-        <h2><%=service.name%></h2>
-        <p><%=service.description%></p>
-      </div>  
-      <a href="#service-show" class="btn btn-warning">Contratar</a><!-- gutter
-   --><a href="#service-show" class="btn btn-danger">Contratar</a>
-      </section>
-    <%end%><!-- gutter 
-    -->
+        <figure>
+          <img src='<%=service.image%>' alt="img-01.jpg">
+        </figure>
+        <h3><%=service.name%></h3>
+        
+        <div class="card-text">
+          <h2><%=service.name%></h2>
+          <p><%=service.description%></p>
+        </div>  
+        <a href="#service-show" class="btn btn-success">Contratar</a><!-- gutter
+     --><a href="#service-show" class="btn btn-danger">Hechar</a>
+  </section>
+<%end%>
