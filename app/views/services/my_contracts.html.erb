@@ -1,0 +1,29 @@
+<p>Mis contratos</p>
+
+
+
+<table>
+  <thead>
+    <tr>
+      <th>Usuario</th>
+      <th>Servicio</th>
+      <th>Descripcion</th>
+      <th>Fecha</th>
+      <th>Aceptar Contrato</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contracts.each do |c| %>
+      <tr>
+        <td><%= c.client_id%></td>
+        <td><%= c.service_id %></td>
+        <td><%= c.provider_id %></td>
+        <td><%= c.date_request%></td>
+        <td><%= c.description%></td>
+        <td><td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>

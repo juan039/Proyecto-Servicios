@@ -2,15 +2,30 @@ class Users::RegistrationsController < Devise::RegistrationsController
 # before_action :configure_sign_up_params, only: [:create]
 # before_action :configure_account_update_params, only: [:update]
 
-  # GET /resource/sign_up
-    # def new
-    #   super
-    # end
+
+    def register
+      @resource=User.to_s.downcase
+       render "new_user.html.erb"
+    end
+
+    def new
+       super
+    end
 
   # POST /resource
-  # def create
-    # super
-  # end
+  def create
+    super
+    @servicio=params[:Servicio]
+    service=Service.find_by name: @servicio
+    if @servicio != nil
+      user= User.last
+      user.provider= true
+      user.save
+      user.scores.create({service_id: service.id})
+
+    end
+    
+  end
 
   # GET /resource/edit
   # def edit

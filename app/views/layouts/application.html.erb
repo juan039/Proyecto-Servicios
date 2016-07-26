@@ -20,12 +20,12 @@
 
        <!-- ///////navBar//////// -->
   <nav class="navbar navbar-light bg-faded">
-    <a class="navbar-brand" href="#">Navbar</a>
+    <a class="navbar-brand" href="/">Navbar</a>
     <ul class="nav navbar-nav">
       <li class="nav-item active">
-        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
-      <li class="nav-item">
+<!--       <li class="nav-item">
         <a class="nav-link" href="#">Features</a>
       </li>
       <li class="nav-item">
@@ -33,19 +33,23 @@
       </li>
       <li class="nav-item">
         <a class="nav-link" href="#">About</a>
-      </li>
+      </li> -->
 
       <li>
-        <button class="btn btn-success-outline pull-xs-right" type="submit">Log In</button>
+        <button class="btn btn-warning-outline pull-xs-right" type="submit"><a href="/users/sign_up/member"> Log In</a></button>
       </li> 
       <li>
-        <button class="btn btn-success-outline pull-xs-right" type="submit"><a href="/users/sign_up">Sing In</a></button>
+        <button class="btn btn-warning-outline pull-xs-right" type="submit"><a href="/users/sign_up">Sing In</a></button>
       </li> 
-
+        <li> 
+          <button class="btn btn-warning-outline pull-xs-right" type="submit">
+            <%= link_to 'Salir', destroy_user_session_path, method: :delete %>
+          </button>
+        </li>
       <li>
         <form class="form-inline pull-xs-right">
           <input class="form-control input-xlg srchHome" type="text" placeholder="Search for services">
-          <button class="btn btn-success-outline" type="submit">Search</button>
+          <button class="btn btn-warning-outline" type="submit">Search</button>
         </form>
  </li>
 
@@ -61,7 +65,7 @@
 
 <footer class="footer">
       <div class="container">
-        <span class="text-muted">Go Service<i class="fa fa-bomb" aria-hidden="true"></i></span>
+        <span class="text-muted">El Servicio<i class="fa fa-bomb" aria-hidden="true"></i></span>
       </div>
 </footer>
 

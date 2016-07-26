@@ -1,15 +1,18 @@
 class ServicesController < ApplicationController
-  before_action :set_service, only: [:show, :edit, :update, :destroy]
+  before_action :set_service, only: [:show, :edit, :update, :destroy, :require_service]
+  before_action :authenticate_user!, only: [:show, :edit, :update, :destroy, :contracts, :require_service] 
 
   # GET /services
   # GET /services.json
   def index
     @services = Service.all
+    @users= User.all
   end
 
   # GET /services/1
   # GET /services/1.json
   def show
+
   end
 
   # GET /services/new
@@ -61,6 +64,29 @@ class ServicesController < ApplicationController
     end
   end
 
+  def require_service
+    @contract=Contract.new
+    render :require_service
+  end
+
+  def add_service  
+    client= current_user
+    service= Service.find(params[:id])
+    c=Contract.create({client_id: client.id, service_id: service.id, date_request: params[:contract][:date_request], description: params[:contract][:description]})
+    redirect_to "/contracts"
+  end
+
+  def contracts
+    @user=current_user
+    if @user.provider == true
+      
+      render :dashboard
+    else 
+      @contracts=Contract.where(:client_id => current_user.id)
+      render :my_contracts
+    end
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_service
@@ -71,4 +97,5 @@ class ServicesController < ApplicationController
     def service_params
       params.require(:service).permit(:name)
     end
+
 end

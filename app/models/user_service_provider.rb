@@ -1,2 +1,3 @@
 class UserServiceProvider < User
+	
 end

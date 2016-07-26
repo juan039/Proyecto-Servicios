@@ -1,10 +1,29 @@
 Rails.application.routes.draw do
   devise_for :users, controllers: {
-        sessions: 'users/sessions'
+        sessions: 'users/sessions', registrations: 'users/registrations'
       }
 
-  resources :services
+  resources :services do
+    post "add_service" => "services#add_service" 
+  end
+  get "/require_service/:id" => "services#require_service"
+  post "/require_service/:id" => "services#add_service"
+  get "/contracts" => "services#contracts"
   root to: "services#index"
+
+
+  devise_scope :user do
+      get "professional/register" =>"devise/registrations#service_provider_user_register"
+  end
+
+# devise_for :users,  :controllers => { :registrations => "users/registrations" } do
+#   get "employee/register", :to => "devise/registrations#nuevo", :as => "employee_register"
+# end
+
+  devise_scope :user do
+      get "users/sign_up/member" =>"users/registrations#register"
+  end
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
