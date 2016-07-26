@@ -18,7 +18,8 @@
     <% @services.each do |service| %>
       <tr>
         <td><%= service.name %></td>
-        <td><a href="/require_service">Contratar</a></td>
+        
+        <td><a href="/require_service/<%=service.id%>">Contratar</a></td>
       </tr>
     <% end %>
   </tbody>
@@ -28,7 +29,8 @@
 
 
 <br>
-
+<a href="/users/sign_up/member">Registrese</a>
+<br>
 <a href="/users/sign_up">Registrese como Prestador de Servicio</a>
 <br>
 

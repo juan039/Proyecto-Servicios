@@ -6,7 +6,8 @@ Rails.application.routes.draw do
   resources :services do
     post "add_service" => "services#add_service" 
   end
-  get "require_service" => "services#require_service"
+  get "/require_service/:id" => "services#require_service"
+  post "/require_service/:id" => "services#add_service"
   get "/contracts" => "services#contracts"
   root to: "services#index"
 

@@ -70,16 +70,19 @@ class ServicesController < ApplicationController
   end
 
   def add_service  
-    client= params[current_user]
-    service= params[@service]
-    client.contracts.create({client_id: client.id, service_id: service.id})
+    client= current_user
+    service= Service.find(params[:id])
+    c=Contract.create({client_id: client.id, service_id: service.id, date_request: params[:contract][:date_request], description: params[:contract][:description]})
+    redirect_to "/contracts"
   end
 
   def contracts
     @user=current_user
     if @user.provider == true
+      
       render :dashboard
     else 
+      @contracts=Contract.where(:client_id => current_user.id)
       render :my_contracts
     end
   end

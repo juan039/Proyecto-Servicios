@@ -3,12 +3,12 @@
 <%= form_for @contract, :url =>{:action => :require_service} do |f|%>
   
   <div class="field">
-    <%= f.label :date_request, 'Fecha' %><br />
+    <%= f.date_field :date_request %><br />
 
   </div>
  
   <div class="field">
-    <%= f.label :description, 'Fecha' %><br />
+    <%= f.label :description, 'Description' %><br />
     <%= f.text_area :description%>
   </div>
 
