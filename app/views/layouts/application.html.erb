@@ -2,56 +2,46 @@
 <html>
 <head>
   <title>Services</title>
-        <meta charset="UTF-8">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>app</title>
-      <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>app</title>
+  <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
 
-      <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+  <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
       
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.2/css/bootstrap.min.css" integrity="sha384-y3tfxAZXuh4HwSYylfB+J125MxIs6mR5FOHamPBG064zB+AFeWH94NdvaCBm8qnd" crossorigin="anonymous">
 
-<%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
- <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
- <%= csrf_meta_tags %>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
   
 </head>
 <body>
 
        <!-- ///////navBar//////// -->
   <nav class="navbar navbar-light bg-faded">
-    <a class="navbar-brand" href="/">Navbar</a>
+    <a class="navbar-brand" href="/">Preser</a>
     <ul class="nav navbar-nav">
       <li class="nav-item active">
         <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
       </li>
-<!--       <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
+
+      <li> 
+        <button class="btn btn-warning-outline pull-xs-right" type="submit">
+          <%= link_to 'Salir', destroy_user_session_path, method: :delete %>
+        </button>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">About</a>
-      </li> -->
 
       <li>
-        <button class="btn btn-warning-outline pull-xs-right" type="submit"><a href="/users/sign_up/member"> Log In</a></button>
+        <button class="btn btn-warning-outline pull-xs-right" type="submit"><a href="/users/sign_in"> Log In</a></button>
       </li> 
+
       <li>
-        <button class="btn btn-warning-outline pull-xs-right" type="submit"><a href="/users/sign_up">Sing In</a></button>
-      </li> 
-        <li> 
-          <button class="btn btn-warning-outline pull-xs-right" type="submit">
-            <%= link_to 'Salir', destroy_user_session_path, method: :delete %>
-          </button>
-        </li>
-      <li>
-        <form class="form-inline pull-xs-right">
-          <input class="form-control input-xlg srchHome" type="text" placeholder="Search for services">
-          <button class="btn btn-warning-outline" type="submit">Search</button>
-        </form>
- </li>
+        <button class="btn btn-warning-outline pull-xs-right" type="submit"><a href="/contracts"> Contratos</a></button>
+      </li>
+
+
+
 
     </ul>
 
@@ -61,14 +51,14 @@
 
 <%= yield %>
 
-    <!-- ///////footer//////// -->
+    <!-- ///////footer//////// 
 
 <footer class="footer">
       <div class="container">
         <span class="text-muted">El Servicio<i class="fa fa-bomb" aria-hidden="true"></i></span>
       </div>
 </footer>
-
+-->
   <!-- Bootstrap core JavaScript
     ================================================== -->
     <!-- Placed at the end of the document so the pages load faster -->

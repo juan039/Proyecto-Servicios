@@ -25,12 +25,15 @@ p {
 	margin-bottom: 1.5rem;
 }
 
+
+
+
 .jumbotron {
 	color: #fff;
 	position: relative;
 	display: block;
 	overflow: hidden;
-	height: 50vh;
+	height: 80vh;
 	background-color: transparent;
 
 }
@@ -42,11 +45,11 @@ p {
     width: auto;
     min-width: 100%;
     min-height: 100%;
- background: url('../videos/In-And-Out.jpg') no-repeat;
- background-position: center;
-  background-size: cover;
-  transition: 1s opacity;
-  z-index: -2;
+ 	background: url('../videos/video.mp4') no-repeat;
+ 	background-position: center;
+  	background-size: cover;
+  	transition: 1s opacity;
+  	z-index: -2;
 }
 
 .header-text {
@@ -115,8 +118,9 @@ text-align: center;
 		box-sizing: border-box;
 		margin: 4px 2px;
 		width: calc(100% - 10px);
-		background-color: #fff;
+		background-color: #000000;
 		border: solid 1px #eee;
+		color: white;
 	}
 
 	figure {
@@ -234,6 +238,7 @@ i{
 }
 
 /*-------footer styles--------*/
+
 
 
 

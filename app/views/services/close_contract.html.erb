@@ -1,0 +1,23 @@
+<h1>Calificar contrato</h1>
+
+
+<h2>Servicio de <%=@contract.service.name%></h2>
+<h3>Descripcion</h3>
+<p><%=@contract.description%></p>
+<h3>Contratista</h3>
+<p><%=@contract.provider.first_name%></p>
+
+<h3>Como califica el servicio?</h3>
+<%= form_for @contract, :url => save_score_path, method: :post do |f|%>
+   
+  <div class="field">
+    <%= f.label :score, 'Calificacion' %><br />
+    <%= f.number_field :score, min:0, max:10, value:0%>
+  </div>
+
+  <div class="actions">
+    <%= f.submit "Calificar" %>
+  </div>
+
+<%end%> 
+

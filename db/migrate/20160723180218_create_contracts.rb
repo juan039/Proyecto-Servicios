@@ -4,7 +4,7 @@ class CreateContracts < ActiveRecord::Migration
       t.integer :client_id
       t.references :service, index: true, foreign_key: true
       t.integer :provider_id
-      t.datetime :date_request
+      t.date :date_request
       t.text :description
       t.timestamps null: false
     end

@@ -1,27 +1,57 @@
-<p>Mis contratos</p>
+<h1>Mis contratos</h1>
 
 
-
-<table>
+<h2>Sin asignar</h2>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Usuario</th>
+      <th>Solicitante</th>
       <th>Servicio</th>
-      <th>Descripcion</th>
-      <th>Fecha</th>
-      <th>Aceptar Contrato</th>
+      <th>Fecha de requerimiento</th>
+      <th>Descripción</th>
     </tr>
   </thead>
 
   <tbody>
     <% @contracts.each do |c| %>
       <tr>
-        <td><%= c.client_id%></td>
-        <td><%= c.service_id %></td>
-        <td><%= c.provider_id %></td>
+        <td><%= current_user.first_name + " " + current_user.last_name%></td>
+        <td><%= c.service.name %></td>
         <td><%= c.date_request%></td>
         <td><%= c.description%></td>
-        <td><td>
+        <td>
+        <button><a href="/close_contract/<%=c.id%>">Finalizar Contrato</a></button>
+        </td>
+
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<h2>Pendientes por calificar</h2>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th>Solicitante</th>
+      <th>Servicio</th>
+      <th>Fecha de requerimiento</th>
+      <th>Descripción</th>
+      <th>Contratista</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @contracts_provider.each do |c| %>
+      <% provider=Contract.find(c.id).provider%>
+      <tr>
+        <td><%= current_user.first_name + " " + current_user.last_name%></td>
+        <td><%= c.service.name %></td>
+        <td><%= c.date_request%></td>
+        <td><%= c.description%></td>
+        <td><%= provider.first_name%></td>
+        <td><button><a href="/close_contract/<%=c.id%>">Calificar</a></button>
+          
+        </td>
 
       </tr>
     <% end %>

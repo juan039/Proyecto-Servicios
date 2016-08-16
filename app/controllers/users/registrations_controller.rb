@@ -24,7 +24,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
       user.scores.create({service_id: service.id})
 
     end
-    
+
   end
 
   # GET /resource/edit

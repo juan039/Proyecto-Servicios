@@ -1,14 +1,14 @@
 <h2>Contratar Servicio</h2>
-
-<%= form_for @contract, :url =>{:action => :require_service} do |f|%>
+ 
+<%= form_for @contract, :url =>{:action => :require_service}, :method => :POST do |f|%>
   
   <div class="field">
     <%= f.date_field :date_request %><br />
 
   </div>
  
-  <div class="field">
-    <%= f.label :description, 'Description' %><br />
+  <div class="form-control field">
+    <%= f.label :description, 'Descripcion' %><br />
     <%= f.text_area :description%>
   </div>
 
@@ -17,3 +17,6 @@
   </div>
 
 <%end%> 
+
+
+

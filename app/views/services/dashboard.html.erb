@@ -1,26 +1,27 @@
-<p>Contratos disponibles</p>
+<h1>Contratos disponibles</h1>
 
-<table>
+<table class="table table-striped">
   <thead>
     <tr>
-      <th>Usuario</th>
+      <th>Solicitante</th>
       <th>Servicio</th>
-      <th>Descripcion</th>
       <th>Fecha</th>
-      <th>Aceptar Contrato</th>
+      <th>Dirección</th>
+      <th>Descripción</th>
+      <th></th>
     </tr>
   </thead>
 
   <tbody>
     <% @contracts.each do |c| %>
+      <% client=Contract.find(c.id).client%>
       <tr>
-        <td><%= c.client_id%></td>
-        <td><%= c.service_id %></td>
-        <td><%= c.provider_id %></td>
+        <td><%= client.first_name + " " + client.last_name %></td>
+        <td><%= c.service.name %></td>
         <td><%= c.date_request%></td>
+        <td><%= client.address%></td>        
         <td><%= c.description%></td>
-        <td><td>
-
+        <td><button><a href="/accept_contract/<%=c.id%>">Aceptar</a></button></td>
       </tr>
     <% end %>
   </tbody>

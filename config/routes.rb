@@ -5,10 +5,14 @@ Rails.application.routes.draw do
 
   resources :services do
     post "add_service" => "services#add_service" 
+    post "save_score" => "services#save_score", as: "save_score"
   end
   get "/require_service/:id" => "services#require_service"
   post "/require_service/:id" => "services#add_service"
   get "/contracts" => "services#contracts"
+  get "/accept_contract/:id" => "services#accept_contract"
+  get "/close_contract/:id" => "services#close_contract"
+  post "/close_contract/:id" => "services#save_score", as: "save_score"
   root to: "services#index"
 
 

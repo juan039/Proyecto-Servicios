@@ -1,0 +1,18 @@
+<h1>Detalles del Contrato</h1>
+
+<div class="card">
+  	<div class="container">
+  		<div class="row">
+  			<div class="col-md-4 col-md-offset-4">
+  				<h4><b>Servicio: <%= @contract.service.name%></b></h4> 
+			    <p><b>Solicitante: <%= @contract.client.first_name + " " + @contract.client.last_name %></b></p>
+			    <p>Dirección: <%= @contract.client.address %></p>
+			    <p>Fecha: <%= @contract.date_request%></p>
+			    <p>Descripción: <%= @contract.description%></p> 
+			    <button class="btn btn-warning btn-sm"><a href="/contracts">Volver a Contratos</a></button>	
+  			</div>
+  		</div>
+  	</div>
+</div>
+
+
