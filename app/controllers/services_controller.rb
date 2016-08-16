@@ -1,6 +1,6 @@
 class ServicesController < ApplicationController
   before_action :set_service, only: [:show, :edit, :update, :destroy, :require_service]
-  before_action :authenticate_user!, only: [:show, :edit, :update, :destroy, :contracts, :require_service] 
+  before_action :authenticate_user!, only: [:show, :edit, :update, :destroy, :contracts, :require_service, :close_contract] 
 
   # GET /services
   # GET /services.json
