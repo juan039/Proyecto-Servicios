@@ -32,24 +32,23 @@
         </button>
       </li>
 
-      <li>
-        <button class="btn btn-warning-outline pull-xs-right" type="submit"><a href="/users/sign_in"> Log In</a></button>
-      </li> 
+      <%if current_user.nil?%>
+
+        <li>
+          <button class="btn btn-warning-outline pull-xs-right" type="submit"><a href="/users/sign_in"> Log In</a></button>
+        </li> 
+
+      <%end%>
 
       <li>
         <button class="btn btn-warning-outline pull-xs-right" type="submit"><a href="/contracts"> Contratos</a></button>
-      </li>
-
-
-
+      </li>    
 
     </ul>
 
   </nav> 
-   <!--  <p class="notice"><%= notice %></p>
-       <p class="alert"><%= alert %></p> --> 
 
-<%= yield %>
+  <%= yield %>
 
     <!-- ///////footer//////// 
 

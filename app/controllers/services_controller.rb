@@ -64,10 +64,14 @@ class ServicesController < ApplicationController
     end
   end
 
+
+  # Crear contrato
+
   def require_service
     @contract=Contract.new
     render :require_service
   end
+
 
   def add_service  
     client= current_user
@@ -76,11 +80,14 @@ class ServicesController < ApplicationController
     redirect_to "/contracts"
   end
 
+  # Mostrar los contratos dependiendo el tipo de usuario
+
   def contracts
     @user=current_user
 
     if @user.provider == true
       @contracts=Contract.where(:service_id => current_user.services.ids, :provider_id => nil)
+      @contracts_acepted=Contract.where(:provider_id => current_user.id, :score => nil)
       render :dashboard
     else 
       @contracts=Contract.where(:client_id => current_user.id)
@@ -89,21 +96,36 @@ class ServicesController < ApplicationController
     end
   end
 
+
+  # Aceptar un contrato si es usuario tipo contratista
+
   def accept_contract
     @contract=Contract.find(params[:id])
     @contract.provider_id=current_user.id
     @contract.save
   end
 
+  # Finalizar contratos
+
   def close_contract
     @contract=Contract.find(params[:id])
   end
+
+  # Guarda la calificacion dada por el usuario por el servicio prestado
 
   def save_score
     c=Contract.find(params[:id])
     c.score= params[:contract][:score]
     c.finished_contract= true
     c.save
+    redirect_to "/contracts"
+  end
+
+  # Cancelar contratos
+
+  def cancel_contract
+    contract=Contract.find(params[:id])
+    contract.destroy
     redirect_to "/contracts"
   end
 

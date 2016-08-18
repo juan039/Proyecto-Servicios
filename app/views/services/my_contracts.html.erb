@@ -1,6 +1,9 @@
 <h1>Mis contratos</h1>
 
 
+<!--Recorre todos los contratos solicitados por el usuario que aun no han tenido respuesta y los muestra -->
+
+
 <h2>Sin asignar</h2>
 <table class="table table-striped">
   <thead>
@@ -13,20 +16,24 @@
   </thead>
 
   <tbody>
+
     <% @contracts.each do |c| %>
       <tr>
+
         <td><%= current_user.first_name + " " + current_user.last_name%></td>
         <td><%= c.service.name %></td>
         <td><%= c.date_request%></td>
         <td><%= c.description%></td>
         <td>
-        <button><a href="/close_contract/<%=c.id%>">Finalizar Contrato</a></button>
+        <button><%= link_to "Cancelar Contrato", cancel_contract_path(c), method: :post %>
         </td>
 
       </tr>
     <% end %>
   </tbody>
 </table>
+
+<!-- Muestra los contratos que ya tienen un contratista asignado para dar la calificacion una vez terminado el servicio -->
 
 <h2>Pendientes por calificar</h2>
 <table class="table table-striped">

@@ -4,15 +4,18 @@ Rails.application.routes.draw do
       }
 
   resources :services do
-    post "add_service" => "services#add_service" 
-    post "save_score" => "services#save_score", as: "save_score"
   end
+
+  # Rutas personalizadas para el controlador services
+
   get "/require_service/:id" => "services#require_service"
-  post "/require_service/:id" => "services#add_service"
   get "/contracts" => "services#contracts"
   get "/accept_contract/:id" => "services#accept_contract"
   get "/close_contract/:id" => "services#close_contract"
+  post "/require_service/:id" => "services#add_service"
   post "/close_contract/:id" => "services#save_score", as: "save_score"
+  post "/cancel_contract/:id" => "services#cancel_contract", as: "cancel_contract"
+
   root to: "services#index"
 
 
